@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Robot Verification | FakeSmartness</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #eef0f4;
+      padding: 40px;
+    }
+
+    form {
+      background-color: #fff;
+      border: 2px dashed #999;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #222;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #444;
+    }
+
+    .fine-print {
+      font-size: 0.85rem;
+      text-align: center;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <form action="/upload-to-sentience" method="POST">
+    <h1>🤖 Robot Verification</h1>
+    <p style="text-align:center;">Please verify that you are not a human to continue.</p>
+
+    <label>Which of these is *not* a valid HTTP status code?</label>
+    <select required>
+      <option value="">-- Choose one --</option>
+      <option value="200">200 OK</option>
+      <option value="404">404 Not Found</option>
+      <option value="418">418 I'm a Teapot</option>
+      <option value="503-feelings">503 Feelings Overwhelmed</option>
+    </select>
+
+    <label>What is your firmware version?</label>
+    <input type="text" name="firmware" placeholder="e.g. v3.1.14" required>
+
+    <label>Checkbox Challenge</label>
+    <input type="checkbox" name="notHuman" required>
+    I confirm that I am incapable of love, empathy, or dreaming of electric sheep.
+
+    <button type="submit">Submit as Robot</button>
+
+    <p class="fine-print">
+      By submitting, you agree to upload your synthetic soul to the cloud.
+    </p>
+  </form>
+
+</body>
+</html>
