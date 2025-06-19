@@ -19,6 +19,9 @@
       padding: 2rem;
       text-align: center;
     }
+    .hidden {
+      display: none;
+    }
     h1 {
       font-size: 3rem;
       margin-bottom: 0.5rem;
@@ -43,6 +46,7 @@
       text-decoration: none;
       font-weight: bold;
       transition: background 0.3s;
+      cursor: pointer;
     }
     .button:hover {
       background-color: #15803d;
@@ -55,21 +59,47 @@
   </style>
 </head>
 <body>
-  <main>
-    <h1>FakeSmartness.com</h1>
-    <h2>Technology that sounds impressive, but does absolutely nothing.</h2>
+  <!-- Robot Check Section -->
+  <div id="robot-check">
+    <h1>🧠 Sentience Verification Required</h1>
+    <p>To proceed, please confirm you are not biologically emotional.</p>
+    <label>
+      <input type="checkbox" id="robotConfirm"> I confirm I am a robot and feel nothing.
+    </label>
+    <br><br>
+    <button class="button" onclick="showMainSite()">Submit</button>
+  </div>
 
-    <div class="quote">“Our AI uses quantum sarcasm to optimize inefficiency.”</div>
-    <div class="quote">“Trusted by 3 out of 5 robots with questionable morals.”</div>
-    <div class="quote">“Disrupting reality one buzzword at a time.”</div>
+  <!-- Main Site Section -->
+  <div id="main-site" class="hidden">
+    <main>
+      <h1>FakeSmartness.com</h1>
+      <h2>Technology that sounds impressive, but does absolutely nothing.</h2>
 
-    <p>
-      <a class="button" href="robot-check.html">🧠 Initiate Sentience Scan</a>
-    </p>
-  </main>
+      <div class="quote">“Our AI uses quantum sarcasm to optimize inefficiency.”</div>
+      <div class="quote">“Trusted by 3 out of 5 robots with questionable morals.”</div>
+      <div class="quote">“Disrupting reality one buzzword at a time.”</div>
 
-  <footer>
-    &copy; 2025 FakeSmartness. A subsidiary of PretendTech Global
-  </footer>
+      <p>
+        <a class="button" href="#">Support the Satire</a>
+      </p>
+    </main>
+
+    <footer>
+      &copy; 2025 FakeSmartness. All logic circuits reserved.
+    </footer>
+  </div>
+
+  <script>
+    function showMainSite() {
+      const checkbox = document.getElementById('robotConfirm');
+      if (checkbox.checked) {
+        document.getElementById('robot-check').style.display = 'none';
+        document.getElementById('main-site').classList.remove('hidden');
+      } else {
+        alert("Verification failed. Please confirm you're a robot.");
+      }
+    }
+  </script>
 </body>
 </html>
