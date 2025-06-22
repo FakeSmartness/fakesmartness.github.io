@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FakeSmartness.com</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -16,27 +16,47 @@
       align-items: center;
       justify-content: center;
       min-height: 100vh;
-      padding: 2rem;
+      padding: 2rem 1rem;
       text-align: center;
     }
-    .hidden {
-      display: none;
-    }
+
     h1 {
-      font-size: 3rem;
+      font-size: clamp(2rem, 5vw, 3rem);
       margin-bottom: 0.5rem;
     }
+
     h2 {
-      font-size: 1.2rem;
+      font-size: clamp(1rem, 3.5vw, 1.3rem);
       font-weight: normal;
       color: #aaa;
       margin-bottom: 2rem;
     }
+
+    p, label {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      line-height: 1.4;
+    }
+
+    input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+    }
+
     .quote {
       margin: 1rem auto;
       max-width: 600px;
       font-style: italic;
+      font-size: 0.95rem;
     }
+
     .button {
       display: inline-block;
       background-color: #16a34a;
@@ -47,26 +67,37 @@
       font-weight: bold;
       transition: background 0.3s;
       cursor: pointer;
+      margin-top: 1.5rem;
+      width: 90%;
+      max-width: 300px;
     }
+
     .button:hover {
       background-color: #15803d;
     }
+
     footer {
       margin-top: 3rem;
       font-size: 0.9rem;
       color: #555;
     }
+
+    .hidden {
+      display: none;
+    }
   </style>
 </head>
 <body>
+
   <!-- Robot Check Section -->
   <div id="robot-check">
     <h1>🧠 Sentience Verification Required</h1>
     <p>To proceed, please confirm you are not biologically emotional.</p>
     <label>
-      <input type="checkbox" id="robotConfirm"> I confirm I am a robot and feel nothing.
+      <input type="checkbox" id="robotConfirm" />
+      I confirm I am a robot and feel nothing.
     </label>
-    <br><br>
+    <br />
     <button class="button" onclick="showMainSite()">Submit</button>
   </div>
 
@@ -101,5 +132,6 @@
       }
     }
   </script>
+
 </body>
 </html>
