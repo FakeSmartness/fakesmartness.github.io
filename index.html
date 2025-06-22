@@ -76,20 +76,42 @@
       background-color: #15803d;
     }
 
-    footer {
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #555;
-    }
-
     .hidden {
       display: none;
+    }
+
+    /* Fake Scan Styling */
+    #scan-screen {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .dots::after {
+      content: '';
+      display: inline-block;
+      animation: dots 1.5s steps(4, end) infinite;
+    }
+
+    @keyframes dots {
+      0% { content: ''; }
+      25% { content: '.'; }
+      50% { content: '..'; }
+      75% { content: '...'; }
+      100% { content: ''; }
+    }
+
+    .scan-msg {
+      font-size: 1.2rem;
+      color: #16a34a;
     }
   </style>
 </head>
 <body>
 
-  <!-- Robot Check Section -->
+  <!-- Robot Check -->
   <div id="robot-check">
     <h1>🧠 Sentience Verification Required</h1>
     <p>To proceed, please confirm you are not biologically emotional.</p>
@@ -98,10 +120,18 @@
       I confirm I am a robot and feel nothing.
     </label>
     <br />
-    <button class="button" onclick="showMainSite()">Submit</button>
+    <button class="button" onclick="startScan()">Submit</button>
   </div>
 
-  <!-- Main Site Section -->
+  <!-- Fake Scan Screen -->
+  <div id="scan-screen" class="hidden">
+    <h1>Analyzing Consciousness</h1>
+    <div class="scan-msg">Detecting sarcasm signature<span class="dots"></span></div>
+    <div class="scan-msg">Calibrating buzzword density<span class="dots"></span></div>
+    <div class="scan-msg">Estimating philosophical threat level<span class="dots"></span></div>
+  </div>
+
+  <!-- Main Site -->
   <div id="main-site" class="hidden">
     <main>
       <h1>FakeSmartness.com</h1>
@@ -122,14 +152,23 @@
   </div>
 
   <script>
-    function showMainSite() {
+    function startScan() {
       const checkbox = document.getElementById('robotConfirm');
-      if (checkbox.checked) {
-        document.getElementById('robot-check').style.display = 'none';
-        document.getElementById('main-site').classList.remove('hidden');
-      } else {
+      if (!checkbox.checked) {
         alert("Verification failed. Please confirm you're a robot.");
+        return;
       }
+
+      // Hide robot check and show fake scan
+      document.getElementById('robot-check').style.display = 'none';
+      const scan = document.getElementById('scan-screen');
+      scan.style.display = 'flex';
+
+      // Fake scan duration then show main site
+      setTimeout(() => {
+        scan.style.display = 'none';
+        document.getElementById('main-site').classList.remove('hidden');
+      }, 4000); // Adjust duration as desired
     }
   </script>
 
